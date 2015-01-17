@@ -1,7 +1,10 @@
 ﻿@Master['Master.sshtml']
 
 @Section['Content']
-<h3>Hello world</h3>
+<div class="container" ng-app="routineModule">
+	<h3>Hello world</h3>
+	<rb-routine a="lol" b="lmao"></rb-routine>
+</div>
 @EndSection
 
 @Section['Scripts']
