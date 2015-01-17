@@ -10,6 +10,8 @@ namespace RoutineBuilder.Web.Configuration
     {
         protected override void ApplicationStartup(Nancy.TinyIoc.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
         {
+            StaticConfiguration.DisableErrorTraces = false;
+
             BundleConfig.RegisterBundlePipeline(pipelines);
 
             base.ApplicationStartup(container, pipelines);
