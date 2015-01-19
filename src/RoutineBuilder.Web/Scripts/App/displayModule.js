@@ -6,7 +6,7 @@
             replace: true,
             templateUrl: '/Templates/rbDisplay.html',
             scope: {
-                trainingMaxes: '=',
+                variables: '=',
                 routineDefinition: '='
             },
             controllerAs: 'ctrl',

@@ -1,9 +1,7 @@
 ﻿@Master['Master.sshtml']
 
 @Section['Content']
-<div class="container" ng-app="routineBuilderApp">
-    <rb-main></rb-main>
-</div>
+<rb-main></rb-main>
 @EndSection
 
 @Section['Scripts']

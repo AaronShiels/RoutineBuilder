@@ -13,7 +13,7 @@
     })
     .controller('mainCtrl', ['routineProviderFactory', function (routineProviderFactory)
     {
-        this.trainingMaxes = [{
+        this.variables = [{
             'Bench Press': 110,
             'Squat': 0,
             'Deadlift': 162.5,

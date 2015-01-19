@@ -1,3 +1,14 @@
-﻿<div class="alert alert-danger">
-    {{ctrl.routineDefinition.name}} {{ctrl.trainingMaxes}}
+﻿<div class="container">
+    <div ng-repeat="week in ctrl.routineDefinition.weeks">
+        <div class="row" ng-repeat="day in week.days">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">{{day.exercises}}</h4>
+                </div>
+                <table class="table">
+
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
