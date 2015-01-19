@@ -1,4 +1,7 @@
 ﻿using Nancy;
+using Nancy.Bootstrapper;
+using Nancy.Conventions;
+using Nancy.TinyIoc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +11,24 @@ namespace RoutineBuilder.Web.Configuration
 {
     public class Bootstrapper : DefaultNancyBootstrapper
     {
-        protected override void ApplicationStartup(Nancy.TinyIoc.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
+        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
-            StaticConfiguration.DisableErrorTraces = false;
-
-            BundleConfig.RegisterBundlePipeline(pipelines);
-
             base.ApplicationStartup(container, pipelines);
+
+            StaticConfiguration.DisableErrorTraces = false;
+            BundleConfig.RegisterBundlePipeline(pipelines);
         }
 
-        protected override void ConfigureApplicationContainer(Nancy.TinyIoc.TinyIoCContainer container)
+        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             base.ConfigureApplicationContainer(container);
+        }
+
+        protected override void ConfigureConventions(NancyConventions nancyConventions)
+        {
+            base.ConfigureConventions(nancyConventions);
+
+            nancyConventions.StaticContentsConventions.AddDirectory("fonts");
         }
     }
 }
