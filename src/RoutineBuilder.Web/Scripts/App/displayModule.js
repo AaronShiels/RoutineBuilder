@@ -14,6 +14,28 @@
             bindToController: true
         }
     })
-    .controller('displayCtrl', [function ()
+    .controller('displayCtrl', ['formulaProviderFactory', function (formulaProviderFactory)
     {
+        this.applyFormula = function (weightFormula) {
+            var extractFormulaValues = function (weightFormulaObj, availableVariables) {
+                var formulaValuesArray = [];
+                for (var prop in weightFormula)
+                    if (weightFormula.hasOwnProperty(prop))
+                        if (prop == 'variable' && availableVariables[weightFormula[prop]])
+                            formulaValuesArray.push(availableVariables[weightFormula[prop]]);
+                        else if (prop != 'descriminator')
+                            formulaValuesArray.push(weightFormula[prop]);
+
+                return formulaValuesArray;
+            };
+
+            if (!weightFormula)
+                return;
+            
+            var formula = formulaProviderFactory.getFormulaByDescriminator(weightFormula.descriminator);
+            var availableVariables = this.variables;
+            var formulaValues = extractFormulaValues(weightFormula, availableVariables);
+
+            return formula.apply(formula, formulaValues);
+        }
     }]);

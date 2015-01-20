@@ -3,10 +3,16 @@
         <div class="row" ng-repeat="day in week.days">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-title">{{day.exercises}}</h4>
+                    <h4 class="panel-title">Week {{$parent.$index + 1}} - Day {{$index + 1}}</h4>
                 </div>
                 <table class="table">
-
+                    <tbody>
+                        <tr ng-repeat="exercise in day.exercises">
+                            <td>{{exercise.name}}</td>
+                            <td>{{exercise.description}}</td>
+                            <td>{{ctrl.applyFormula(exercise.weightFormula)}}</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

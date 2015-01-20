@@ -1,1 +1,1 @@
-﻿angular.module('routineBuilderApp', ['mainModule']);
+﻿angular.module('routineBuilderApp', ['mainModule', 'displayModule', 'providerModule']);

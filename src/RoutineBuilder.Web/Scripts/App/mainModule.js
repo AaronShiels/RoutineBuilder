@@ -1,4 +1,4 @@
-﻿angular.module('mainModule', ['displayModule', 'providerModule'])
+﻿angular.module('mainModule', [])
     .directive('rbMain', function ()
     {
         return {
@@ -13,11 +13,11 @@
     })
     .controller('mainCtrl', ['routineProviderFactory', function (routineProviderFactory)
     {
-        this.variables = [{
-            'Bench Press': 110,
-            'Squat': 0,
-            'Deadlift': 162.5,
-            'Overhead Press' : 55
-        }];
+        this.variables = {
+            'benchPressTrainingMax': 110,
+            'squatTrainingMax': 0,
+            'deadliftTrainingMax': 162.5,
+            'overheadPressTrainingMax' : 55
+        };
         this.routineDefinition = routineProviderFactory.getRoutineDefinitionByName('Beyond 531');
     }]);
