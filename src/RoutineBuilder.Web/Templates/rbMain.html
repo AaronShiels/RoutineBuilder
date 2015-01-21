@@ -1,5 +1,15 @@
 ﻿<div class="row">
-    <div class="col-md-12">
+    <div class="form-horizontal">
+        <div class="form-group" ng-repeat="(key, value) in ctrl.variables track by key">
+            <label class="control-label col-sm-6">
+                {{key}}
+            </label>
+            <div class="col-sm-6">
+                <input type="text" ng-model="ctrl.variables[key]" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
         <rb-display variables="ctrl.variables" routine-definition="ctrl.routineDefinition"></rb-display>
     </div>
 </div>
