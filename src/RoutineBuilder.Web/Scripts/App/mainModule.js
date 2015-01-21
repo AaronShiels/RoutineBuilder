@@ -11,13 +11,13 @@
             bindToController: true
         }
     })
-    .controller('mainCtrl', ['routineProviderFactory', function (routineProviderFactory)
+    .controller('mainCtrl', ['routineProvider', function (routineProvider)
     {
         this.variables = {
-            'benchPressTrainingMax': 110,
+            'benchPressTrainingMax': 112.5,
             'squatTrainingMax': 0,
-            'deadliftTrainingMax': 162.5,
-            'overheadPressTrainingMax' : 55
+            'deadliftTrainingMax': 170,
+            'overheadPressTrainingMax' : 50
         };
-        this.routineDefinition = routineProviderFactory.getRoutineDefinitionByName('Beyond 531');
+        this.routineDefinition = routineProvider.getByName('Beyond 531');
     }]);

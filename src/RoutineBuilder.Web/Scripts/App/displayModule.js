@@ -14,7 +14,7 @@
             bindToController: true
         }
     })
-    .controller('displayCtrl', ['formulaProviderFactory', function (formulaProviderFactory)
+    .controller('displayCtrl', ['formulaProvider', function (formulaProvider)
     {
         this.applyFormula = function (weightFormula) {
             var extractFormulaValues = function (weightFormulaObj, availableVariables) {
@@ -32,7 +32,7 @@
             if (!weightFormula)
                 return;
             
-            var formula = formulaProviderFactory.getFormulaByDescriminator(weightFormula.descriminator);
+            var formula = formulaProvider.getByDescriminator(weightFormula.descriminator);
             var availableVariables = this.variables;
             var formulaValues = extractFormulaValues(weightFormula, availableVariables);
 

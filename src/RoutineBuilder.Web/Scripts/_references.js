@@ -6,5 +6,6 @@
 /// <reference path="angular-mocks.js" />
 /// <reference path="app/app.js" />
 /// <reference path="app/displaymodule.js" />
-/// <reference path="app/providermodule.js" />
 /// <reference path="app/mainmodule.js" />
+/// <reference path="app/routineprovidermodule.js" />
+/// <reference path="app/forumlamodule.js" />
