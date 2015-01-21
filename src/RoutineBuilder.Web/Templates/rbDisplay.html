@@ -8,9 +8,9 @@
                 <table class="table">
                     <tbody>
                         <tr ng-repeat="exercise in day.exercises">
-                            <td>{{exercise.name}}</td>
-                            <td>{{exercise.description}}</td>
-                            <td>{{ctrl.applyFormula(exercise.weightFormula) | round | weight}}</td>
+                            <td style="width: 30%; overflow: hidden; white-space: nowrap">{{exercise.name}}</td>
+                            <td style="width: 30%; overflow: hidden; white-space: nowrap">{{exercise.description}}</td>
+                            <td style="width: 30%; overflow: hidden; white-space: nowrap">{{ctrl.applyFormula(exercise.weightFormula) | round:2.5 | weight:'kg' }}</td>
                         </tr>
                     </tbody>
                 </table>

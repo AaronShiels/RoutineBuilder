@@ -13,17 +13,17 @@
         }
     })
     .filter('round', function () {
-        return function (input) {
+        return function (input, increment) {
             var floatVal = parseFloat(input);
 
             if (isNaN(floatVal))
                 return null;
             else 
-                return (Math.round(floatVal * 4) / 4).toFixed(2);
+                return (Math.round(floatVal / increment) * increment);
         };
     })
     .filter('weight', function () {
-        return function (input) {
-            return input ? (input + " kg") : "-";
+        return function (input, unit) {
+            return input ? (input + " " + unit) : "-";
         }
     });

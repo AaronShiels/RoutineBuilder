@@ -16,6 +16,10 @@
     })
     .controller('displayCtrl', ['formulaProvider', function (formulaProvider)
     {
+        this.getColourForExercise = function (name) {
+
+        };
+
         this.applyFormula = function (weightFormula) {
             var extractFormulaValues = function (weightFormulaObj, availableVariables) {
                 var formulaValuesArray = [];
@@ -31,11 +35,11 @@
 
             if (!weightFormula)
                 return;
-            
+
             var formula = formulaProvider.getByDescriminator(weightFormula.descriminator);
             var availableVariables = this.variables;
             var formulaValues = extractFormulaValues(weightFormula, availableVariables);
 
             return formula.apply(formula, formulaValues);
-        }
+        };
     }]);
