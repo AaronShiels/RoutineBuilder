@@ -7,7 +7,7 @@
                 </div>
                 <table class="table">
                     <tbody>
-                        <tr ng-repeat="exercise in day.exercises">
+                        <tr ng-repeat="exercise in day.exercises" ng-style="{ 'background-color' : ctrl.getColourForExercise(exercise.name) }">
                             <td style="width: 30%; overflow: hidden; white-space: nowrap">{{exercise.name}}</td>
                             <td style="width: 30%; overflow: hidden; white-space: nowrap">{{exercise.description}}</td>
                             <td style="width: 30%; overflow: hidden; white-space: nowrap">{{ctrl.applyFormula(exercise.weightFormula) | round:2.5 | weight:'kg' }}</td>

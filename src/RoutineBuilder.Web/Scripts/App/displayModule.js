@@ -17,7 +17,9 @@
     .controller('displayCtrl', ['formulaProvider', function (formulaProvider)
     {
         this.getColourForExercise = function (name) {
-
+            for (var i = 0; i < this.routineDefinition.colourCoding.length; i++)
+                if (this.routineDefinition.colourCoding[i].exerciseName == name)
+                    return this.routineDefinition.colourCoding[i].hexCode;
         };
 
         this.applyFormula = function (weightFormula) {
