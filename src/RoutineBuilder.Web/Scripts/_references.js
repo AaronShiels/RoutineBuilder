@@ -9,3 +9,6 @@
 /// <reference path="app/mainmodule.js" />
 /// <reference path="app/routineprovidermodule.js" />
 /// <reference path="app/forumlamodule.js" />
+/// <reference path="angular-ui/ui-bootstrap-tpls.min.js" />
+/// <reference path="angular-ui/ui-bootstrap.min.js" />
+/// <reference path="app/variablesmodule.js" />

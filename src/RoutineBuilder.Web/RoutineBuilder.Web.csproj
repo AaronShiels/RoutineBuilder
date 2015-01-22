@@ -96,6 +96,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -110,6 +114,7 @@
     <Content Include="Scripts\App\mainModule.js" />
     <Content Include="Scripts\App\displayModule.js" />
     <Content Include="Scripts\App\routineProviderModule.js" />
+    <Content Include="Scripts\App\variablesModule.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
@@ -117,6 +122,7 @@
     <Content Include="Scripts\jquery-2.1.3.min.map" />
     <None Include="Scripts\_references.js" />
     <Content Include="Templates\rbDisplay.html" />
+    <Content Include="Templates\rbVariables.html" />
     <Content Include="Templates\rbMain.html" />
     <Content Include="Views\Index.sshtml" />
     <Content Include="Views\Master.sshtml" />

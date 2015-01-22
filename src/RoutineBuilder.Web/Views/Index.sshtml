@@ -3,14 +3,3 @@
 @Section['Content']
 <rb-main></rb-main>
 @EndSection
-
-@Section['Scripts']
-<script type="text/javascript">
-    $(function () {
-        /*$.getJSON('/budget', function (data) {
-            console.log(data);
-            $('#content').html(JSON.stringify(data));
-        });*/
-    });
-</script>
-@EndSection

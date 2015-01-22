@@ -1,0 +1,10 @@
+﻿<div class="form-horizontal">
+    <div class="form-group" ng-repeat="(key, value) in ctrl.variables track by key">
+        <label class="control-label col-md-3 col-xs-6">
+            {{key}}
+        </label>
+        <div class="col-md-9 col-xs-6">
+            <input type="text" ng-model="ctrl.variables[key]" class="form-control" />
+        </div>
+    </div>
+</div>

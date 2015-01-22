@@ -10,34 +10,8 @@
     <title>Routine Builder</title>
     @Context.ViewBag.Styles
 </head>
-<body>
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <i class="fa fa-tasks"></i>
-                    Routine Builder
-                </a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container" ng-app="routineBuilderApp">
-        @Section['Content'];
-        <footer>
-            <p>&copy; 2015 - Aaron Shiels</p>
-        </footer>
-    </div>
+<body ng-app="routineBuilderApp">
+    @Section['Content'];
     @Context.ViewBag.Scripts
     @Section['Scripts'];
 </body>

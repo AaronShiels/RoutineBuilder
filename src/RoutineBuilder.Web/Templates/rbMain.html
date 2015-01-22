@@ -1,15 +1,27 @@
-﻿<div class="row">
-    <div class="form-horizontal col-xs-12">
-        <div class="form-group" ng-repeat="(key, value) in ctrl.variables track by key">
-            <label class="control-label col-md-3 col-xs-6">
-                {{key}}
-            </label>
-            <div class="col-md-9 col-xs-6">
-                <input type="text" ng-model="ctrl.variables[key]" class="form-control" />
-            </div>
+﻿<div>
+    <div class="navbar-rb navbar-default" role="navigation">
+        <div class="container">
+            <span class="navbar-brand">
+                <i class="fa fa-tasks"></i>
+                Routine Builder
+            </span>
+            <button type="button" class="btn btn-default navbar-button" ng-click="ctrl.showOptions = !ctrl.showOptions">
+                <i class="fa fa-cog"></i>
+            </button>
+        </div>
+        <div class="container" collapse="ctrl.showOptions">
+            <rb-variables variables="ctrl.variables"></rb-variables>
         </div>
     </div>
-    <div class="col-xs-12">
-        <rb-display variables="ctrl.variables" routine-definition="ctrl.routineDefinition"></rb-display>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <rb-display variables="ctrl.variables" routine-definition="ctrl.routineDefinition"></rb-display>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2015 - Aaron Shiels</p>
+        </footer>
     </div>
 </div>
+

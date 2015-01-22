@@ -13,6 +13,8 @@
     })
     .controller('mainCtrl', ['routineProvider', function (routineProvider)
     {
+        this.showOptions = true;
+
         this.variables = {
             'benchPressTrainingMax': 112.5,
             'squatTrainingMax': 0,
