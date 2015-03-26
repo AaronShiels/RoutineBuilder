@@ -16,10 +16,10 @@
         this.showOptions = true;
 
         this.variables = {
-            'benchPressTrainingMax': 112.5,
+            'benchPressTrainingMax': 125,
             'squatTrainingMax': 0,
-            'deadliftTrainingMax': 170,
-            'overheadPressTrainingMax' : 50
+            'deadliftTrainingMax': 182.5,
+            'overheadPressTrainingMax' : 57.5
         };
         this.routineDefinition = routineProvider.getByName('Beyond 531');
     }]);
