@@ -1,5 +1,5 @@
 ﻿@Master['Master.sshtml']
 
 @Section['Content']
-<rb-main></rb-main>
+<div ng-view></div ng-view>
 @EndSection

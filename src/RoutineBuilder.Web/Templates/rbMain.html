@@ -5,16 +5,13 @@
                 <i class="fa fa-tasks"></i>
                 Routine Builder
             </span>
-            <button type="button" class="btn btn-default navbar-button" ng-click="ctrl.showOptions = !ctrl.showOptions">
-                <i class="fa fa-cog"></i>
-            </button>
-        </div>
-        <div class="container" collapse="ctrl.showOptions">
-            <rb-variables variables="ctrl.variables"></rb-variables>
         </div>
     </div>
     <div class="container">
         <div class="row">
+            <div class="col-xs-12">
+                <rb-variables variables="ctrl.variables"></rb-variables>
+            </div>
             <div class="col-xs-12">
                 <rb-display variables="ctrl.variables" routine-definition="ctrl.routineDefinition"></rb-display>
             </div>

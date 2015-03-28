@@ -1,22 +1,8 @@
 ﻿angular.module('mainModule', [])
-    .directive('rbMain', function ()
+    .controller('mainCtrl', ['$routeParams', 'routineProvider', function ($routeParams, routineProvider)
     {
-        return {
-            restrict: 'E',
-            replace: true,
-            templateUrl: '/Templates/rbMain.html',
-            scope: {},
-            controllerAs: 'ctrl',
-            controller: 'mainCtrl',
-            bindToController: true
-        }
-    })
-    .controller('mainCtrl', ['routineProvider', function (routineProvider)
-    {
-        this.showOptions = true;
-
         this.variables = {
-            'benchPressTrainingMax': 125,
+            'benchPressTrainingMax': 122.5,
             'squatTrainingMax': 0,
             'deadliftTrainingMax': 182.5,
             'overheadPressTrainingMax' : 57.5

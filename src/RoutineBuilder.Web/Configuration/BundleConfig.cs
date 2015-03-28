@@ -29,6 +29,7 @@ namespace RoutineBuilder.Web.Configuration
                 .Add("~/Scripts/jquery-2.1.3.js")
                 .Add("~/Scripts/bootstrap.js")
                 .Add("~/Scripts/angular.js")
+                .Add("~/Scripts/angular-route.js")
                 .Add("~/Scripts/angular-ui/ui-bootstrap.js")
                 .Add("~/Scripts/App/")
                 .WithMinifier<SquishIt.Framework.Minifiers.JavaScript.MsMinifier>()

@@ -13,4 +13,5 @@
         }
     })
     .controller('variablesCtrl', function (routineProvider) {
+        this.isCollapsed = true;
     });
