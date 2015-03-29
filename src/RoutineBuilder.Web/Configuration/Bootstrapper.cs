@@ -22,6 +22,8 @@ namespace RoutineBuilder.Web.Configuration
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             base.ConfigureApplicationContainer(container);
+
+            CompositionConfig.RegisterExports(container);
         }
 
         protected override void ConfigureConventions(NancyConventions nancyConventions)

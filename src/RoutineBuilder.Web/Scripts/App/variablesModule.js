@@ -12,6 +12,6 @@
             bindToController: true
         }
     })
-    .controller('variablesCtrl', function (routineProvider) {
+    .controller('variablesCtrl', function () {
         this.isCollapsed = true;
     });

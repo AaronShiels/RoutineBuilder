@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+	<base href="/">
     <link rel="icon" href="../../favicon.ico">
     <title>Routine Builder</title>
     @Context.ViewBag.Styles
 </head>
 <body ng-app="routineBuilderApp">
-    @Section['Content'];
+	<div class="navbar-rb navbar-default" role="navigation">
+		<div class="container">
+			<span class="navbar-brand">
+				<i class="fa fa-tasks"></i>
+				Routine Builder
+			</span>
+		</div>
+	</div>
+	<div class="container">
+		@Section['Content'];
+		<footer>
+			<p>&copy; 2015 - Aaron Shiels</p>
+		</footer>
+	</div>
     @Context.ViewBag.Scripts
     @Section['Scripts'];
 </body>

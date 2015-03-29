@@ -1,0 +1,16 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Routines
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="routineId in ctrl.routineList">
+            <td>
+                <a ng-href="/view/{{routineId}}">{{ routineId }}</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
