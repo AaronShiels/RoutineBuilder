@@ -127,6 +127,7 @@
     <Content Include="Scripts\App\formulaModule.js" />
     <Content Include="Scripts\App\homeModule.js" />
     <Content Include="Scripts\App\listModule.js" />
+    <Content Include="Scripts\App\storageProviderModule.js" />
     <Content Include="Scripts\App\viewModule.js" />
     <Content Include="Scripts\App\displayModule.js" />
     <Content Include="Scripts\App\routineProviderModule.js" />

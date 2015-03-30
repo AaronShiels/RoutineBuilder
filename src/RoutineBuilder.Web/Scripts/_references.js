@@ -15,3 +15,4 @@
 /// <reference path="app/viewmodule.js" />
 /// <reference path="app/homemodule.js" />
 /// <reference path="app/listmodule.js" />
+/// <reference path="app/storageprovidermodule.js" />

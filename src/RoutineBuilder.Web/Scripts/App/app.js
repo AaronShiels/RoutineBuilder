@@ -1,5 +1,6 @@
 ﻿angular.module('routineBuilderApp', [
         'routineProviderModule',
+        'storageProviderModule',
         'homeModule',
         'listModule',
         'viewModule',
@@ -18,7 +19,10 @@
             controller: 'viewCtrl',
             controllerAs: 'ctrl',
             resolve: {
-                routine: ['$route', 'routineProvider', function ($route, routineProvider) {
+                routineId: ['$route', function($route) {
+                    return $route.current.params.routineId;
+                }],
+                routineDefinition: ['$route', 'routineProvider', function ($route, routineProvider) {
                     return routineProvider.getRoutine($route.current.params.routineId);
                 }]
             }

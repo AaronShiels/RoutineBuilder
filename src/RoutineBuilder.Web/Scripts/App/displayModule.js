@@ -16,8 +16,6 @@
     })
     .controller('displayCtrl', ['formulaProvider', function (formulaProvider)
     {
-        console.log((typeof this.routineDefinition));
-
         this.getColourForExercise = function (name) {
             for (var i = 0; i < this.routineDefinition.colourCoding.length; i++)
                 if (this.routineDefinition.colourCoding[i].exerciseName == name)
