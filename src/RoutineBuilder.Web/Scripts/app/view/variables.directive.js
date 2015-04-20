@@ -3,9 +3,9 @@
 
     angular
         .module('app')
-        .directive('rbVariables', variables);
+        .directive('rbVariables', rbVariables);
 
-    function variables() {
+    function rbVariables() {
         var directive = {
             restrict: 'E',
             replace: true,
@@ -15,19 +15,19 @@
                 variables: '='
             },
             controllerAs: 'ctrl',
-            controller: variablesController,
+            controller: VariablesController,
             bindToController: true
         }
 
         return directive;
     }
 
-    variablesController.$inject = ['localStorageService'];
-    function variablesController(localStorageService) {
+    VariablesController.$inject = ['localStorage'];
+    function VariablesController(localStorage) {
         this.isCollapsed = true;
 
         this.save = function () {
-            //localStorageService.set(this.routineId, this.variables);
+            //localStorage.set(this.routineId, this.variables);
             //console.log('fuckenSaved');
         };
     }

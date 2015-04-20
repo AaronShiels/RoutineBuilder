@@ -31,7 +31,10 @@ namespace RoutineBuilder.Web.Configuration
                 .Add("~/Scripts/angular.js")
                 .Add("~/Scripts/angular-route.js")
                 .Add("~/Scripts/angular-ui/ui-bootstrap.js")
-                .Add("~/Scripts/App/")
+                .Add("~/Scripts/app/")
+                .Add("~/Scripts/app/home/")
+                .Add("~/Scripts/app/view/")
+                .Add("~/Scripts/app/services/")
                 .WithMinifier<SquishIt.Framework.Minifiers.JavaScript.MsMinifier>()
                 .AsCached("scripts", "~/bundles/js/scripts");
         }

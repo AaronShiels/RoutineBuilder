@@ -3,12 +3,12 @@
 
     angular
         .module('app')
-        .factory('formulaService', formulaService)
-        .filter('round', round)
-        .filter('weight', weight);
+        .factory('formulas', formulasService)
+        .filter('round', roundFilter)
+        .filter('weight', weightFilter);
     
-    function formulaService() {
-        var formulas = {
+    function formulasService() {
+        var formulaDictionary = {
             'VariableCoefficientConstant': function (base, coefficient, constant) {
                 return base * coefficient + constant;
             }
@@ -20,11 +20,11 @@
         return service;
 
         function getByDescriminator(descriminator) {
-            return formulas[descriminator];
+            return formulaDictionary[descriminator];
         }
     }
     
-    function round() {
+    function roundFilter() {
         return function (input, increment) {
             var floatVal = parseFloat(input);
 
@@ -35,7 +35,7 @@
         };
     }
 
-    function weight() {
+    function weightFilter() {
         return function (input, unit) {
             return input ? (input + " " + unit) : "-";
         }

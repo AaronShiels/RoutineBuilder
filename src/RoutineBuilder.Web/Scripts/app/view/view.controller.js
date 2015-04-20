@@ -3,10 +3,10 @@
 
     angular
         .module('app')
-        .controller('viewController', viewController);
+        .controller('ViewController', ViewController);
 
-    viewController.$inject = ['routineId', 'routineDefinition'];
-    function viewController(routineId, routineDefinition) {
+    ViewController.$inject = ['routineId', 'routineDefinition'];
+    function ViewController(routineId, routineDefinition) {
         this.routineId = routineId;
         this.routineDefinition = routineDefinition;
         this.variables = {

@@ -3,9 +3,9 @@
 
     angular
         .module('app')
-        .directive('rbList', list);
+        .directive('rbList', rbList);
 
-    function list() {
+    function rbList() {
         var directive = {
             restrict: 'E',
             replace: true,
@@ -14,14 +14,14 @@
                 routineList: '='
             },
             controllerAs: 'ctrl',
-            controller: listController,
+            controller: ListController,
             bindToController: true
         };
 
         return directive;
     }
 
-    function listController() {
+    function ListController() {
 
     }
 })();

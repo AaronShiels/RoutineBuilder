@@ -3,16 +3,16 @@
 
     angular
         .module('app')
-        .config(config);
+        .config(routeConfig);
 
-    config.$inject = ['$routeProvider', '$locationProvider'];
-    function config($routeProvider, $locationProvider) {
+    routeConfig.$inject = ['$routeProvider', '$locationProvider'];
+    function routeConfig($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
 
         $routeProvider
             .when('/view/:routineId', {
                 templateUrl: '/Templates/rbView.html',
-                controller: 'viewController',
+                controller: 'ViewController',
                 controllerAs: 'ctrl',
                 resolve: {
                     routineId: routineIdResolver,
@@ -21,7 +21,7 @@
             })
             .when('/', {
                 templateUrl: '/Templates/rbHome.html',
-                controller: 'homeController',
+                controller: 'HomeController',
                 controllerAs: 'ctrl',
                 resolve: {
                     routineList: routineListResolver
@@ -37,13 +37,13 @@
         return $route.current.params.routineId;
     }
 
-    routineDefinitionResolver.$inject = ['$route', 'routineService'];
-    function routineDefinitionResolver($route, routineService) {
-        return routineService.getRoutine($route.current.params.routineId);
+    routineDefinitionResolver.$inject = ['$route', 'routines'];
+    function routineDefinitionResolver($route, routines) {
+        return routines.getRoutine($route.current.params.routineId);
     }
 
-    routineListResolver.$inject = ['routineService'];
-    function routineListResolver(routineService) {
-        return routineService.getList();
+    routineListResolver.$inject = ['routines'];
+    function routineListResolver(routines) {
+        return routines.getList();
     }
 })();

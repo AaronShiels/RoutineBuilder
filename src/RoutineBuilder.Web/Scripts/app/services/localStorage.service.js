@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .factory('localStorageService', localStorageService);
+        .factory('localStorage', localStorageService);
 
     localStorageService.$inject = ['$window'];
     function localStorageService($window) {

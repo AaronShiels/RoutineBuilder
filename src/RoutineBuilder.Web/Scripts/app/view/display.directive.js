@@ -3,9 +3,9 @@
 
     angular
         .module('app')
-        .directive('rbDisplay', display);
+        .directive('rbDisplay', rbDisplay);
 
-    function display() {
+    function rbDisplay() {
         var directive = {
             restrict: 'E',
             replace: true,
@@ -15,15 +15,15 @@
                 routineDefinition: '='
             },
             controllerAs: 'ctrl',
-            controller: displayController,
+            controller: DisplayController,
             bindToController: true
         };
 
         return directive;
     }
 
-    displayController.$inject = ['formulaService'];
-    function displayController(formulaService) {
+    DisplayController.$inject = ['formulas'];
+    function DisplayController(formulas) {
         this.getColourForExercise = function (name) {
             for (var i = 0; i < this.routineDefinition.colourCoding.length; i++)
                 if (this.routineDefinition.colourCoding[i].exerciseName == name)
@@ -46,7 +46,7 @@
             if (!weightFormula)
                 return;
 
-            var formula = formulaService.getByDescriminator(weightFormula.descriminator);
+            var formula = formulas.getByDescriminator(weightFormula.descriminator);
             var availableVariables = this.variables;
             var formulaValues = extractFormulaValues(weightFormula, availableVariables);
 

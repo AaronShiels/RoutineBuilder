@@ -3,10 +3,10 @@
 
     angular
         .module('app')
-        .factory('routineService', routineService);
+        .factory('routines', routinesService);
 
-    routineService.$inject = ['$http'];
-    function routineService($http) {
+    routinesService.$inject = ['$http'];
+    function routinesService($http) {
         var service = {
             getList: getList,
             getRoutine: getRoutine
