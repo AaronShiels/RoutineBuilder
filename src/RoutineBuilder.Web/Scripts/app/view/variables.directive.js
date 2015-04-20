@@ -14,7 +14,7 @@
                 routineId: '=',
                 variables: '='
             },
-            controllerAs: 'ctrl',
+            controllerAs: 'vm',
             controller: VariablesController,
             bindToController: true
         }
@@ -24,9 +24,9 @@
 
     VariablesController.$inject = ['localStorage'];
     function VariablesController(localStorage) {
-        this.isCollapsed = true;
-
-        this.save = function () {
+        var vm = this;
+        vm.isCollapsed = true;
+        vm.save = function () {
             //localStorage.set(this.routineId, this.variables);
             //console.log('fuckenSaved');
         };

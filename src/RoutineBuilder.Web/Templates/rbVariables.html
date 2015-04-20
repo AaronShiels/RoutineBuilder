@@ -1,19 +1,19 @@
 ﻿<div class="panel-group">
     <div class="panel panel-default">
-        <div class="panel-heading" ng-click="ctrl.isCollapsed = !ctrl.isCollapsed" style="cursor: pointer">
+        <div class="panel-heading" ng-click="vm.isCollapsed = !vm.isCollapsed" style="cursor: pointer">
             <h3 class="panel-title">
                 Variables
-                <i class="glyphicon" ng-class="ctrl.isCollapsed ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'"></i>
+                <i class="glyphicon" ng-class="vm.isCollapsed ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'"></i>
             </h3>
         </div>
-        <div class="panel-collapse" collapse="ctrl.isCollapsed">
+        <div class="panel-collapse" collapse="vm.isCollapsed">
             <div class="panel-body form-horizontal">
-                <div class="form-group" ng-repeat="(key, value) in ctrl.variables track by key">
+                <div class="form-group" ng-repeat="(key, value) in vm.variables track by key">
                     <label class="control-label col-md-3 col-xs-6">
                         {{key}}
                     </label>
                     <div class="col-md-9 col-xs-6">
-                        <input type="text" ng-model="ctrl.variables[key]" ng-change="ctrl.save()" class="form-control" />
+                        <input type="text" ng-model="vm.variables[key]" ng-change="vm.save()" class="form-control" />
                     </div>
                 </div>
             </div>

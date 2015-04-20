@@ -1,5 +1,5 @@
 ﻿<div>
-    <div ng-repeat="week in ctrl.routineDefinition.weeks">
+    <div ng-repeat="week in vm.routineDefinition.weeks">
         <div ng-repeat="day in week.days">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -7,10 +7,10 @@
                 </div>
                 <table class="table">
                     <tbody>
-                        <tr ng-repeat="exercise in day.exercises" ng-style="{ 'background-color' : ctrl.getColourForExercise(exercise.name) }">
+                        <tr ng-repeat="exercise in day.exercises" ng-style="{ 'background-color' : vm.getColourForExercise(exercise.name) }">
                             <td style="width: 30%; overflow: hidden; white-space: nowrap">{{exercise.name}}</td>
                             <td style="width: 30%; overflow: hidden; white-space: nowrap">{{exercise.description}}</td>
-                            <td style="width: 30%; overflow: hidden; white-space: nowrap">{{ctrl.applyFormula(exercise.weightFormula) | round:2.5 | weight:'kg' }}</td>
+                            <td style="width: 30%; overflow: hidden; white-space: nowrap">{{vm.applyFormula(exercise.weightFormula) | round:2.5 | weight:'kg' }}</td>
                         </tr>
                     </tbody>
                 </table>

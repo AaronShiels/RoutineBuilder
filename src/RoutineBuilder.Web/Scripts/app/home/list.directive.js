@@ -13,7 +13,7 @@
             scope: {
                 routineList: '='
             },
-            controllerAs: 'ctrl',
+            controllerAs: 'vm',
             controller: ListController,
             bindToController: true
         };
@@ -22,6 +22,6 @@
     }
 
     function ListController() {
-
+        var vm = this;
     }
 })();

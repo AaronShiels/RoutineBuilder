@@ -14,7 +14,7 @@
                 variables: '=',
                 routineDefinition: '='
             },
-            controllerAs: 'ctrl',
+            controllerAs: 'vm',
             controller: DisplayController,
             bindToController: true
         };
@@ -24,14 +24,29 @@
 
     DisplayController.$inject = ['formulas'];
     function DisplayController(formulas) {
-        this.getColourForExercise = function (name) {
-            for (var i = 0; i < this.routineDefinition.colourCoding.length; i++)
-                if (this.routineDefinition.colourCoding[i].exerciseName == name)
-                    return this.routineDefinition.colourCoding[i].hexCode;
-        };
+        var vm = this;
+        vm.getColourForExercise = getColourForExercise;
+        vm.applyFormula = applyFormula;
 
-        this.applyFormula = function (weightFormula) {
-            var extractFormulaValues = function (weightFormulaObj, availableVariables) {
+            
+
+        function getColourForExercise(name) {
+            for (var i = 0; i < vm.routineDefinition.colourCoding.length; i++)
+                if (vm.routineDefinition.colourCoding[i].exerciseName == name)
+                    return vm.routineDefinition.colourCoding[i].hexCode;
+        }
+
+        function applyFormula(weightFormula) {
+            if (!weightFormula)
+                return;
+
+            var formula = formulas.getByDescriminator(weightFormula.descriminator);
+            var availableVariables = vm.variables;
+            var formulaValues = extractFormulaValues(weightFormula, availableVariables);
+
+            return formula.apply(formula, formulaValues);
+
+            function extractFormulaValues(weightFormulaObj, availableVariables) {
                 var formulaValuesArray = [];
                 for (var prop in weightFormula)
                     if (weightFormula.hasOwnProperty(prop))
@@ -41,17 +56,8 @@
                             formulaValuesArray.push(weightFormula[prop]);
 
                 return formulaValuesArray;
-            };
-
-            if (!weightFormula)
-                return;
-
-            var formula = formulas.getByDescriminator(weightFormula.descriminator);
-            var availableVariables = this.variables;
-            var formulaValues = extractFormulaValues(weightFormula, availableVariables);
-
-            return formula.apply(formula, formulaValues);
-        };
+            }
+        }
     }
 })();
 

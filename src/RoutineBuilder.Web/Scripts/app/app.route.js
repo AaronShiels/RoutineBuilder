@@ -11,18 +11,18 @@
 
         $routeProvider
             .when('/view/:routineId', {
-                templateUrl: '/Templates/rbView.html',
+                templateUrl: '/Templates/View.html',
                 controller: 'ViewController',
-                controllerAs: 'ctrl',
+                controllerAs: 'vm',
                 resolve: {
                     routineId: routineIdResolver,
                     routineDefinition: routineDefinitionResolver
                 }
             })
             .when('/', {
-                templateUrl: '/Templates/rbHome.html',
+                templateUrl: '/Templates/Home.html',
                 controller: 'HomeController',
-                controllerAs: 'ctrl',
+                controllerAs: 'vm',
                 resolve: {
                     routineList: routineListResolver
                 }

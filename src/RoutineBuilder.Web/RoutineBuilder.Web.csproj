@@ -143,8 +143,8 @@
     <Content Include="Templates\rbDisplay.html" />
     <Content Include="Templates\rbList.html" />
     <Content Include="Templates\rbVariables.html" />
-    <Content Include="Templates\rbHome.html" />
-    <Content Include="Templates\rbView.html" />
+    <Content Include="Templates\Home.html" />
+    <Content Include="Templates\View.html" />
     <Content Include="Views\Index.sshtml" />
     <Content Include="Views\Master.sshtml" />
     <None Include="Web.Debug.config">

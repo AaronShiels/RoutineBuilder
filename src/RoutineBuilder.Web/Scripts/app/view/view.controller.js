@@ -7,9 +7,10 @@
 
     ViewController.$inject = ['routineId', 'routineDefinition'];
     function ViewController(routineId, routineDefinition) {
-        this.routineId = routineId;
-        this.routineDefinition = routineDefinition;
-        this.variables = {
+        var vm = this;
+        vm.routineId = routineId;
+        vm.routineDefinition = routineDefinition;
+        vm.variables = {
             'benchPressTrainingMax': 122.5,
             'squatTrainingMax': 0,
             'deadliftTrainingMax': 182.5,

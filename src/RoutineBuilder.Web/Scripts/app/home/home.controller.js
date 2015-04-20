@@ -7,6 +7,7 @@
 
     HomeController.$inject = ['routineList'];
     function HomeController(routineList) {
-        this.routineList = routineList;
+        var vm = this;
+        vm.routineList = routineList;
     }
 })();
