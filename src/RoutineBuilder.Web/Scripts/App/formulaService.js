@@ -1,29 +1,43 @@
-﻿angular.module('formulaModule', [])
-    .factory('formulaProvider', function () {
+﻿(function () {
+    'use strict';
+
+    angular
+        .module('app')
+        .factory('formulaService', formulaService)
+        .filter('round', round)
+        .filter('weight', weight);
+    
+    function formulaService() {
         var formulas = {
             'VariableCoefficientConstant': function (base, coefficient, constant) {
                 return base * coefficient + constant;
             }
         };
 
-        return {
-            getByDescriminator: function (descriminator) {
-                return formulas[descriminator];
-            }
+        var service = {
+            getByDescriminator: getByDescriminator
         }
-    })
-    .filter('round', function () {
+        return service;
+
+        function getByDescriminator(descriminator) {
+            return formulas[descriminator];
+        }
+    }
+    
+    function round() {
         return function (input, increment) {
             var floatVal = parseFloat(input);
 
             if (isNaN(floatVal))
                 return null;
-            else 
+            else
                 return (Math.round(floatVal / increment) * increment);
         };
-    })
-    .filter('weight', function () {
+    }
+
+    function weight() {
         return function (input, unit) {
             return input ? (input + " " + unit) : "-";
         }
-    });
+    }
+})();

@@ -1,6 +1,12 @@
-﻿angular.module('viewModule', [])
-    .controller('viewCtrl', ['routineId', 'routineDefinition', function (routineId, routineDefinition)
-    {
+﻿(function () {
+    'use strict';
+
+    angular
+        .module('app')
+        .controller('viewController', viewController);
+
+    viewController.$inject = ['routineId', 'routineDefinition'];
+    function viewController(routineId, routineDefinition) {
         this.routineId = routineId;
         this.routineDefinition = routineDefinition;
         this.variables = {
@@ -9,4 +15,5 @@
             'deadliftTrainingMax': 182.5,
             'overheadPressTrainingMax': 57.5
         };
-    }]);
+    }
+})();

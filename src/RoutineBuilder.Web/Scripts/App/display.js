@@ -1,7 +1,12 @@
-﻿angular.module('displayModule', [])
-    .directive('rbDisplay', function ()
-    {
-        return {
+﻿(function () {
+    'use strict';
+
+    angular
+        .module('app')
+        .directive('rbDisplay', display);
+
+    function display() {
+        var directive = {
             restrict: 'E',
             replace: true,
             templateUrl: '/Templates/rbDisplay.html',
@@ -10,12 +15,15 @@
                 routineDefinition: '='
             },
             controllerAs: 'ctrl',
-            controller: 'displayCtrl',
+            controller: displayController,
             bindToController: true
-        }
-    })
-    .controller('displayCtrl', ['formulaProvider', function (formulaProvider)
-    {
+        };
+
+        return directive;
+    }
+
+    displayController.$inject = ['formulaService'];
+    function displayController(formulaService) {
         this.getColourForExercise = function (name) {
             for (var i = 0; i < this.routineDefinition.colourCoding.length; i++)
                 if (this.routineDefinition.colourCoding[i].exerciseName == name)
@@ -38,10 +46,12 @@
             if (!weightFormula)
                 return;
 
-            var formula = formulaProvider.getByDescriminator(weightFormula.descriminator);
+            var formula = formulaService.getByDescriminator(weightFormula.descriminator);
             var availableVariables = this.variables;
             var formulaValues = extractFormulaValues(weightFormula, availableVariables);
 
             return formula.apply(formula, formulaValues);
         };
-    }]);
+    }
+})();
+

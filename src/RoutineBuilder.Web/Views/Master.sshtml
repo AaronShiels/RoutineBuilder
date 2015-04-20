@@ -11,7 +11,7 @@
     <title>Routine Builder</title>
     @Context.ViewBag.Styles
 </head>
-<body ng-app="routineBuilderApp">
+<body ng-app="app">
 	<div class="navbar-rb navbar-default" role="navigation">
 		<div class="container">
 			<span class="navbar-brand">
