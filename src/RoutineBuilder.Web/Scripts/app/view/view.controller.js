@@ -11,10 +11,10 @@
         vm.routineId = routineId;
         vm.routineDefinition = routineDefinition;
         vm.variables = {
-            'benchPressTrainingMax': 122.5,
+            'benchPressTrainingMax': 117.5,
             'squatTrainingMax': 0,
-            'deadliftTrainingMax': 182.5,
-            'overheadPressTrainingMax': 57.5
+            'deadliftTrainingMax': 185,
+            'overheadPressTrainingMax': 55
         };
     }
 })();

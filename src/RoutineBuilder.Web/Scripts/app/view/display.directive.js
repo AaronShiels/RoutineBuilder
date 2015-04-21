@@ -28,8 +28,6 @@
         vm.getColourForExercise = getColourForExercise;
         vm.applyFormula = applyFormula;
 
-            
-
         function getColourForExercise(name) {
             for (var i = 0; i < vm.routineDefinition.colourCoding.length; i++)
                 if (vm.routineDefinition.colourCoding[i].exerciseName == name)
