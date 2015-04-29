@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoutineBuilder.Core.Entities
+namespace RoutineBuilder.Core.Context.Entities
 {
-    public class Routine
+    public partial class Routine
     {
-        public Guid Id { get; set; }
-        public string Data { get; set; }
-
         public class ById : IQuery<Routine>
         {
             private readonly Guid _id;
@@ -24,14 +21,6 @@ namespace RoutineBuilder.Core.Entities
             public IQueryable<Routine> Filter(IQueryable<Routine> items)
             {
                 return items.Where(i => i.Id == _id);
-            }
-        }
-
-        public class All : IQuery<Routine>
-        {
-            public IQueryable<Routine> Filter(IQueryable<Routine> items)
-            {
-                return items;
             }
         }
     }

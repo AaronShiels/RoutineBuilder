@@ -161,6 +161,7 @@
     <Compile Include="Configuration\Bootstrapper.cs" />
     <Compile Include="Configuration\BundleConfig.cs" />
     <Compile Include="Configuration\CompositionConfig.cs" />
+    <Compile Include="Configuration\JsonNetSerializer.cs" />
     <Compile Include="Modules\BundlesModule.cs" />
     <Compile Include="Modules\MainModule.cs" />
     <Compile Include="Modules\RoutineModule.cs" />

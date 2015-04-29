@@ -32,5 +32,13 @@ namespace RoutineBuilder.Web.Configuration
 
             nancyConventions.StaticContentsConventions.AddDirectory("fonts");
         }
+
+        protected override NancyInternalConfiguration InternalConfiguration
+        {
+            get
+            {
+                return NancyInternalConfiguration.WithOverrides(c => c.Serializers.Insert(0, typeof(JsonNetSerializer)));
+            }
+        }
     }
 }

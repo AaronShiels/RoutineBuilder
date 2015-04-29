@@ -1,5 +1,5 @@
 ﻿using Nancy.TinyIoc;
-using RoutineBuilder.Core.Context;
+using RoutineBuilder.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,8 @@ namespace RoutineBuilder.Web.Configuration
     {
         public static void RegisterExports(TinyIoCContainer container)
         {
-            container.Register<IRoutineBuilderDbContext>(new RoutineBuilderDbContext());
+            container.AutoRegister(new[] { CoreParts.Assembly },
+                t => t.Namespace.Contains(".Parts"));
         }
     }
 }
