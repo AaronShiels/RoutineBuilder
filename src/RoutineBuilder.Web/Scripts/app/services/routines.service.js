@@ -14,7 +14,7 @@
         return service;
 
         function getList() {
-            return $http.get('/routine/list').then(function (result) {
+            return $http.get('/routine/').then(function (result) {
                 return result.data;
             });
         }

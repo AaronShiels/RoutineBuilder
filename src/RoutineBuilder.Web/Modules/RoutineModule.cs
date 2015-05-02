@@ -2,21 +2,21 @@
 using RoutineBuilder.Core;
 using RoutineBuilder.Core.Context;
 using RoutineBuilder.Core.Mappers;
-using RoutineBuilder.Core.Model;
-using System;
-using System.Collections.Generic;
+using RoutineBuilder.Core.Mappers.Parts;
+using RoutineBuilder.Core.Models;
 using System.Linq;
-using System.Web;
 using RoutineEntity = RoutineBuilder.Core.Context.Entities.Routine;
 
 namespace RoutineBuilder.Web.Modules
 {
     public class RoutineModule : NancyModule
     {
-        public RoutineModule(IRoutineBuilderDbContext db, IMapper<RoutineEntity, Routine> routineEntityToModelMapper)
+        public RoutineModule(IRoutineBuilderDbContext db)
             : base("/routine")
         {
-            Get["/list"] = _ =>
+            var routineEntityToModelMapper = new RoutineEntityToModelMapper();
+
+            Get["/"] = _ =>
             {
                 var routineList = db.Query(new RoutineEntity.All())
                                    .Select(r => new { r.Id, r.Name })

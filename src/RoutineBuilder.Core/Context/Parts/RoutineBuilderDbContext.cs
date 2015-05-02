@@ -1,11 +1,8 @@
-﻿using RoutineBuilder.Core.Context.Entities;
-using System;
-using System.Collections.Generic;
+﻿using Magnum.Extensions;
+using RoutineBuilder.Core.Context.Entities;
 using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RoutineBuilder.Core.Context.Parts
 {
@@ -37,9 +34,13 @@ namespace RoutineBuilder.Core.Context.Parts
                                 c.Property(p).HasColumnName(p.Name);
                             }
                         });
-            //modelBuilder.Conventions.Add(new PrivateMappingConventions());
-            //modelBuilder.Configurations.Add(new RoutineMap());
-            //modelBuilder.Configurations.Add(new DisplayMetadataMap());
+        }
+
+        public void Insert<TEntity>(params TEntity[] entities) where TEntity : class
+        {
+            var set = Set<TEntity>();
+
+            entities.Each(e => set.Add(e));
         }
     }
 }

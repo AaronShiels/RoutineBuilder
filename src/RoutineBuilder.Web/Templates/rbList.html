@@ -7,9 +7,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="routineId in vm.routineList">
+        <tr ng-repeat="(key, value) in vm.routineList track by key">
             <td>
-                <a ng-href="/view/{{routineId}}">{{ routineId }}</a>
+                <a ng-href="/view/{{key}}">{{ value }}</a>
             </td>
         </tr>
     </tbody>

@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		resources\Schema\Create.sql = resources\Schema\Create.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutineBuilder.Core", "RoutineBuilder.Core\RoutineBuilder.Core.csproj", "{CD9FE4A8-AB39-464E-90F7-00211DD191D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutineBuilder.Core", "src\RoutineBuilder.Core\RoutineBuilder.Core.csproj", "{CD9FE4A8-AB39-464E-90F7-00211DD191D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

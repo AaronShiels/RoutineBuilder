@@ -2,10 +2,6 @@
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace RoutineBuilder.Web.Configuration
 {
@@ -31,14 +27,6 @@ namespace RoutineBuilder.Web.Configuration
             base.ConfigureConventions(nancyConventions);
 
             nancyConventions.StaticContentsConventions.AddDirectory("fonts");
-        }
-
-        protected override NancyInternalConfiguration InternalConfiguration
-        {
-            get
-            {
-                return NancyInternalConfiguration.WithOverrides(c => c.Serializers.Insert(0, typeof(JsonNetSerializer)));
-            }
         }
     }
 }

@@ -36,9 +36,13 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Magnum, Version=2.1.3.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Magnum.2.1.3\lib\NET40\Magnum.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1-beta2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -55,24 +59,20 @@
     <Compile Include="Context\Parts\RoutineBuilderDbContext.cs" />
     <Compile Include="CoreParts.cs" />
     <Compile Include="Encoding.cs" />
-    <Compile Include="Context\Entities\Day.cs" />
-    <Compile Include="Context\Entities\Exercise.cs" />
     <Compile Include="Context\Entities\Routine.All.cs" />
     <Compile Include="Context\Entities\Routine.ById.cs" />
     <Compile Include="Context\Entities\Routine.cs" />
-    <Compile Include="Context\Entities\Week.cs" />
     <Compile Include="Mappers\IMapper.cs" />
-    <Compile Include="Mappers\Parts\DayEntityToModelMapper.cs" />
-    <Compile Include="Mappers\Parts\ExerciseEntityToModelMapper.cs" />
     <Compile Include="Mappers\Parts\RoutineModelToEntityMapper.cs" />
     <Compile Include="Mappers\Parts\RoutineEntityToModelMapper.cs" />
-    <Compile Include="Mappers\Parts\WeekEntityToModelMapper.cs" />
-    <Compile Include="Model\Body.cs" />
-    <Compile Include="Model\Day.cs" />
-    <Compile Include="Model\Exercise.cs" />
-    <Compile Include="Model\Metadata.cs" />
-    <Compile Include="Model\Routine.cs" />
-    <Compile Include="Model\Week.cs" />
+    <Compile Include="Models\Body.cs" />
+    <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\Exercise.cs" />
+    <Compile Include="Models\IWeightFormula.cs" />
+    <Compile Include="Models\Metadata.cs" />
+    <Compile Include="Models\Routine.cs" />
+    <Compile Include="Models\VariableCoefficientConstantFormula.cs" />
+    <Compile Include="Models\Week.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

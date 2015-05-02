@@ -29,9 +29,9 @@
         vm.applyFormula = applyFormula;
 
         function getColourForExercise(name) {
-            for (var i = 0; i < vm.routineDefinition.colourCoding.length; i++)
-                if (vm.routineDefinition.colourCoding[i].exerciseName == name)
-                    return vm.routineDefinition.colourCoding[i].hexCode;
+            for (var i = 0; i < vm.routineDefinition.metadata.colours.length; i++)
+                if (vm.routineDefinition.metadata.colours[i].exerciseName == name)
+                    return vm.routineDefinition.metadata.colours[i].hexCode;
         }
 
         function applyFormula(weightFormula) {

@@ -1,11 +1,6 @@
-﻿using RoutineBuilder.Core.Context;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RoutineBuilder.Core.Context.Entities
 {
@@ -15,7 +10,7 @@ namespace RoutineBuilder.Core.Context.Entities
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Week> Weeks { get; set; }
-        public string ColoursSerialized { get; set; }
+        public string BodySerialized { get; set; }
+        public string MetadataSerialized { get; set; }
     }
 }

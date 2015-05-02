@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace RoutineBuilder.Core.Context
 {
     public interface IRoutineBuilderDbContext
     {
         IQueryable<T> Query<T>(IQuery<T> query) where T : class;
+        void Insert<TEntity>(params TEntity[] entities) where TEntity : class;
+        int SaveChanges();
     }
 }
