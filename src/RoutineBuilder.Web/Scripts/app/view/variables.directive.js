@@ -25,9 +25,14 @@
     function VariablesController(localStorage) {
         var vm = this;
         vm.isCollapsed = true;
-        vm.save = function () {
-            //localStorage.set(this.routineId, this.variables);
-            //console.log('fuckenSaved');
+        vm.save = function (key, value) {
+            localStorage.set(key, value);
         };
     }
 })();
+
+/*
+BP 117.5
+DL 185
+OHP 55
+*/

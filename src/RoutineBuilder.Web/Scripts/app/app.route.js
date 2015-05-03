@@ -31,9 +31,20 @@
             });
     }
 
-    routineResolver.$inject = ['$route', 'routines'];
-    function routineResolver($route, routines) {
-        return routines.getRoutine($route.current.params.id);
+    routineResolver.$inject = ['$q', '$route', 'routines', 'localStorage'];
+    function routineResolver($q, $route, routines, localStorage) {
+        var routinePromise = routines.getRoutine($route.current.params.id);
+        var combinedPromise = routinePromise.then(function (routine) {
+            for (var key in routine.variables) {
+                if (routine.variables.hasOwnProperty(key)) {
+                    routine.variables[key] = localStorage.get(key) || 0;
+                }
+            }
+
+            return routine;
+        });
+
+        return combinedPromise;
     }
 
     routineListResolver.$inject = ['routines'];

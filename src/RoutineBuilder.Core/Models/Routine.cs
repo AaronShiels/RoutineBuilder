@@ -15,7 +15,7 @@ namespace RoutineBuilder.Core.Models
             get
             {
                 return Body.Weeks
-                            .SelectMany(w => w.Days.SelectMany(d => d.Exercises.Select(e => e?.WeightForumla?.Variable)))
+                            .SelectMany(w => w.Days.SelectMany(d => d.Exercises.Select(e => e?.WeightFormula?.Variable)))
                             .Where(v => !string.IsNullOrEmpty(v))
                             .Distinct()
                             .ToDictionary(v => v, v => 0m);

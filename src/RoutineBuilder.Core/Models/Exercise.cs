@@ -6,11 +6,11 @@
         {
             Name = name;
             Description = description;
-            WeightForumla = formula;
+            WeightFormula = formula;
         }
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public /*IWeightFormula*/ VariableCoefficientConstantFormula WeightForumla { get; set; }
+        public /*IWeightFormula*/ VariableCoefficientConstantFormula WeightFormula { get; set; }
     }
 }

@@ -14,11 +14,11 @@
         return service;
 
         function set(key, value) {
-            $window.localStorage[key] = JSON.stringify(value);
+            $window.localStorage[key] = value;
         }
 
         function get(key) {
-            return JSON.parse($window.localStorage[key] || '{}');
+            return $window.localStorage[key];
         }
     }
 })();

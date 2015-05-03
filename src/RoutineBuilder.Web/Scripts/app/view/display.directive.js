@@ -29,7 +29,6 @@
         vm.applyFormula = applyFormula;
 
         function getColourForExercise(name) {
-            console.log(JSON.stringify(vm.routine.metadata.colours));
             if (vm.routine.metadata.colours.hasOwnProperty(name))
                 return vm.routine.metadata.colours[name];
         }
@@ -40,6 +39,7 @@
 
             var formula = formulas.getByDescriminator(weightFormula.descriminator);
             var availableVariables = vm.routine.variables;
+
             var formulaValues = extractFormulaValues(weightFormula, availableVariables);
 
             return formula.apply(formula, formulaValues);
