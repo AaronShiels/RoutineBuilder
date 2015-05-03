@@ -4,11 +4,11 @@ namespace RoutineBuilder.Core.Models
 {
     public class Metadata
     {
-        public Metadata(IDictionary<string, string> colours)
+        public Metadata(Dictionary<string, string> colours)
         {
             Colours = colours;
         }
 
-        public IDictionary<string, string> Colours { get; set; }
+        public Dictionary<string, string> Colours { get; set; }
     }
 }

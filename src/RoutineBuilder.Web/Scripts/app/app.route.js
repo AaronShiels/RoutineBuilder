@@ -10,13 +10,12 @@
         $locationProvider.html5Mode(true);
 
         $routeProvider
-            .when('/view/:routineId', {
+            .when('/view/:id', {
                 templateUrl: '/Templates/View.html',
                 controller: 'ViewController',
                 controllerAs: 'vm',
                 resolve: {
-                    routineId: routineIdResolver,
-                    routineDefinition: routineDefinitionResolver
+                    routine: routineResolver
                 }
             })
             .when('/', {
@@ -32,14 +31,9 @@
             });
     }
 
-    routineIdResolver.$inject = ['$route'];
-    function routineIdResolver($route) {
-        return $route.current.params.routineId;
-    }
-
-    routineDefinitionResolver.$inject = ['$route', 'routines'];
-    function routineDefinitionResolver($route, routines) {
-        return routines.getRoutine($route.current.params.routineId);
+    routineResolver.$inject = ['$route', 'routines'];
+    function routineResolver($route, routines) {
+        return routines.getRoutine($route.current.params.id);
     }
 
     routineListResolver.$inject = ['routines'];

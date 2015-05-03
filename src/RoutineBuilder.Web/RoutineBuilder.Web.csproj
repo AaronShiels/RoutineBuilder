@@ -72,6 +72,10 @@
       <HintPath>..\..\packages\Nancy.Owin.1.2.0\lib\net40\Nancy.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Nancy.Serialization.JsonNet, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nancy.Serialization.JsonNet.1.2.0\lib\net40\Nancy.Serialization.JsonNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.7.0.1-beta2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -162,11 +166,12 @@
     <Compile Include="Configuration\Bootstrapper.cs" />
     <Compile Include="Configuration\BundleConfig.cs" />
     <Compile Include="Configuration\CompositionConfig.cs" />
-    <Compile Include="Configuration\JsonNetSerializer.cs" />
     <Compile Include="Modules\BundlesModule.cs" />
     <Compile Include="Modules\MainModule.cs" />
     <Compile Include="Modules\RoutineModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializer\CamelCaseExceptDictionaryContractResolver.cs" />
+    <Compile Include="Serializer\CustomCamelCaseJsonSerializer.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

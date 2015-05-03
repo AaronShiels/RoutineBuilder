@@ -11,8 +11,7 @@
             replace: true,
             templateUrl: '/Templates/rbDisplay.html',
             scope: {
-                variables: '=',
-                routineDefinition: '='
+                routine: '='
             },
             controllerAs: 'vm',
             controller: DisplayController,
@@ -25,13 +24,14 @@
     DisplayController.$inject = ['formulas'];
     function DisplayController(formulas) {
         var vm = this;
+
         vm.getColourForExercise = getColourForExercise;
         vm.applyFormula = applyFormula;
 
         function getColourForExercise(name) {
-            for (var i = 0; i < vm.routineDefinition.metadata.colours.length; i++)
-                if (vm.routineDefinition.metadata.colours[i].exerciseName == name)
-                    return vm.routineDefinition.metadata.colours[i].hexCode;
+            console.log(JSON.stringify(vm.routine.metadata.colours));
+            if (vm.routine.metadata.colours.hasOwnProperty(name))
+                return vm.routine.metadata.colours[name];
         }
 
         function applyFormula(weightFormula) {
@@ -39,7 +39,7 @@
                 return;
 
             var formula = formulas.getByDescriminator(weightFormula.descriminator);
-            var availableVariables = vm.variables;
+            var availableVariables = vm.routine.variables;
             var formulaValues = extractFormulaValues(weightFormula, availableVariables);
 
             return formula.apply(formula, formulaValues);

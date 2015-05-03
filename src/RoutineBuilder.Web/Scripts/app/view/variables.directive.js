@@ -11,7 +11,6 @@
             replace: true,
             templateUrl: '/Templates/rbVariables.html',
             scope: {
-                routineId: '=',
                 variables: '='
             },
             controllerAs: 'vm',

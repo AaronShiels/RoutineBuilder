@@ -5,16 +5,9 @@
         .module('app')
         .controller('ViewController', ViewController);
 
-    ViewController.$inject = ['routineId', 'routineDefinition'];
-    function ViewController(routineId, routineDefinition) {
+    ViewController.$inject = ['routine'];
+    function ViewController(routine) {
         var vm = this;
-        vm.routineId = routineId;
-        vm.routineDefinition = routineDefinition;
-        vm.variables = {
-            'benchPressTrainingMax': 117.5,
-            'squatTrainingMax': 0,
-            'deadliftTrainingMax': 185,
-            'overheadPressTrainingMax': 55
-        };
+        vm.routine = routine;
     }
 })();
