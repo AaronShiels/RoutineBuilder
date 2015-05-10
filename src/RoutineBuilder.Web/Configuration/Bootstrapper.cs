@@ -1,7 +1,13 @@
-﻿using Nancy;
+﻿using Magnum.Extensions;
+using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
+using Newtonsoft.Json;
+using RoutineBuilder.Core;
+using RoutineBuilder.Core.Container;
+using RoutineBuilder.Web.Serializer;
+using System.Linq;
 
 namespace RoutineBuilder.Web.Configuration
 {
@@ -19,7 +25,34 @@ namespace RoutineBuilder.Web.Configuration
         {
             base.ConfigureApplicationContainer(container);
 
-            CompositionConfig.RegisterExports(container);
+            container.Register<JsonSerializer, CustomCamelCaseJsonSerializer>();
+
+            IoCConventions.FromAssemblies(new[] { CoreParts.Assembly }, t => t.Namespace.Contains(".Parts"))
+                          .Where(cd => new[] { LifeTime.PerApplication, LifeTime.PerInstance }.Contains(cd.LifeTime))
+                          .Each(cd =>
+                          {
+                              switch(cd.LifeTime)
+                              {
+                                  case LifeTime.PerApplication:
+                                      container.Register(cd.RegistrationType, cd.ImplementationType).AsSingleton();
+                                      break;
+                                  case LifeTime.PerInstance:
+                                      container.Register(cd.RegistrationType, cd.ImplementationType).AsMultiInstance();
+                                      break;
+                              }
+                          });
+        }
+
+        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
+        {
+            base.ConfigureRequestContainer(container, context);
+
+            IoCConventions.FromAssemblies(new[] { CoreParts.Assembly }, t => t.Namespace.Contains(".Parts"))
+                          .Where(cd => cd.LifeTime == LifeTime.PerRequest)
+                          .Each(cd =>
+                          {
+                              container.Register(cd.RegistrationType, cd.ImplementationType).AsSingleton();
+                          });
         }
 
         protected override void ConfigureConventions(NancyConventions nancyConventions)

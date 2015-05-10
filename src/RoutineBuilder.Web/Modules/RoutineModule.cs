@@ -2,7 +2,6 @@
 using RoutineBuilder.Core;
 using RoutineBuilder.Core.Context;
 using RoutineBuilder.Core.Mappers;
-using RoutineBuilder.Core.Mappers.Parts;
 using RoutineBuilder.Core.Models;
 using System.Linq;
 using RoutineEntity = RoutineBuilder.Core.Context.Entities.Routine;
@@ -11,11 +10,9 @@ namespace RoutineBuilder.Web.Modules
 {
     public class RoutineModule : NancyModule
     {
-        public RoutineModule(IRoutineBuilderDbContext db)
+        public RoutineModule(IRoutineBuilderDbContext db, IMapper<RoutineEntity, Routine> mapper)
             : base("/routine")
         {
-            var routineEntityToModelMapper = new RoutineEntityToModelMapper();
-
             Get["/"] = _ =>
             {
                 var routineList = db.Query(new RoutineEntity.All())
@@ -30,7 +27,7 @@ namespace RoutineBuilder.Web.Modules
                 var routineId = Encoding.DecodeGuid(_.routineId);
                 var routine = db.Query(new RoutineEntity.ById(routineId))
                                 .ToList()
-                                .Select(routineEntityToModelMapper.Map)
+                                .Select(mapper.Map)
                                 .SingleOrDefault();
 
                 if (routine == null)

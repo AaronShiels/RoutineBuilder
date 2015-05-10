@@ -56,6 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Container\ContainerDefinition.cs" />
+    <Compile Include="Container\IoCConventions.cs" />
+    <Compile Include="Container\LifeTime.cs" />
+    <Compile Include="Container\LifeTimeAttribute.cs" />
     <Compile Include="Context\IQuery.cs" />
     <Compile Include="Context\IRoutineBuilderDbContext.cs" />
     <Compile Include="Context\Parts\RoutineBuilderDbContext.cs" />
