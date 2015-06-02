@@ -1,65 +1,59 @@
-﻿using Magnum.Extensions;
-using Nancy;
+﻿using Nancy;
 using Nancy.Bootstrapper;
-using Nancy.Conventions;
-using Nancy.TinyIoc;
+using Nancy.Bootstrappers.Mef2;
 using Newtonsoft.Json;
 using RoutineBuilder.Core;
-using RoutineBuilder.Core.Container;
 using RoutineBuilder.Web.Serializer;
-using System.Linq;
+using System.Composition;
+using System.Collections.Generic;
+using System.Composition.Convention;
+using System.Reflection;
+using Alt.Composition;
+using Nancy.Responses;
 
 namespace RoutineBuilder.Web.Configuration
 {
-    public class Bootstrapper : DefaultNancyBootstrapper
+    public class Bootstrapper : CompositionContextNancyBootstrapper
     {
-        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
+        protected override void ApplicationStartup(CompositionContext container, IPipelines pipelines)
         {
-            base.ApplicationStartup(container, pipelines);
-
             StaticConfiguration.DisableErrorTraces = false;
-            BundleConfig.RegisterBundlePipeline(pipelines);
+            BundleConfig.RegisterBundles();
         }
 
-        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+        protected override string PerRequestBoundary
         {
-            base.ConfigureApplicationContainer(container);
-
-            container.Register<JsonSerializer, CustomCamelCaseJsonSerializer>();
-
-            IoCConventions.FromAssemblies(new[] { CoreParts.Assembly }, t => t.Namespace.Contains(".Parts"))
-                          .Where(cd => new[] { LifeTime.PerApplication, LifeTime.PerInstance }.Contains(cd.LifeTime))
-                          .Each(cd =>
-                          {
-                              switch(cd.LifeTime)
-                              {
-                                  case LifeTime.PerApplication:
-                                      container.Register(cd.RegistrationType, cd.ImplementationType).AsSingleton();
-                                      break;
-                                  case LifeTime.PerInstance:
-                                      container.Register(cd.RegistrationType, cd.ImplementationType).AsMultiInstance();
-                                      break;
-                              }
-                          });
+            get { return Boundaries.DataConsistency; }
         }
 
-        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
+        protected override void ConfigureCompositionConventions(ConventionBuilder conventions)
         {
-            base.ConfigureRequestContainer(container, context);
+            conventions.ForTypesMatching(x => x.IsPublic &&
+                                              x.Namespace != null &&
+                                              x.Namespace.Contains(".Parts"))
+                       .ExportInterfaces();
 
-            IoCConventions.FromAssemblies(new[] { CoreParts.Assembly }, t => t.Namespace.Contains(".Parts"))
-                          .Where(cd => cd.LifeTime == LifeTime.PerRequest)
-                          .Each(cd =>
-                          {
-                              container.Register(cd.RegistrationType, cd.ImplementationType).AsSingleton();
-                          });
+            conventions.ForType<CustomCamelCaseJsonSerializer>().Export<JsonSerializer>();
         }
 
-        protected override void ConfigureConventions(NancyConventions nancyConventions)
+        protected override void ConfigureCompositionAssemblies(IList<Assembly> assemblies)
         {
-            base.ConfigureConventions(nancyConventions);
+            assemblies.Add(typeof(Bootstrapper).Assembly);
+            assemblies.Add(CoreParts.Assembly);
+        }
 
-            nancyConventions.StaticContentsConventions.AddDirectory("fonts");
+        private NancyInternalConfiguration StripDefautSerializer(NancyInternalConfiguration config)
+        {
+            config.Serializers.Remove(typeof(DefaultJsonSerializer));
+            return config;
+        }
+
+        protected override NancyInternalConfiguration InternalConfiguration
+        {
+            get
+            {
+                return StripDefautSerializer(base.InternalConfiguration);
+            }
         }
     }
 }

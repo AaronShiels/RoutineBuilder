@@ -10,9 +10,19 @@ namespace RoutineBuilder.Web.Modules
         public BundlesModule()
             : base("/bundles")
         {
-            Get["/js/{name}"] = _ => CreateResponse(Bundle.JavaScript().RenderCached((string)_.name), SquishIt.Framework.Configuration.Instance.JavascriptMimeType);
+            Get["/js/{name}"] = _ => ServeJavaScript(_.name);
 
-            Get["/css/{name}"] = _ => CreateResponse(Bundle.Css().RenderCached((string)_.name), SquishIt.Framework.Configuration.Instance.CssMimeType);
+            Get["/css/{name}"] = _ => ServeCss(_.name);
+        }
+
+        private Response ServeJavaScript(string name)
+        {
+            return CreateResponse(Bundle.JavaScript().RenderCached(name), SquishIt.Framework.Configuration.Instance.JavascriptMimeType);
+        }
+
+        private Response ServeCss(string name)
+        {
+            return CreateResponse(Bundle.Css().RenderCached(name), SquishIt.Framework.Configuration.Instance.CssMimeType);
         }
 
         private Response CreateResponse(string content, string contentType)

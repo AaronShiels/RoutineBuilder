@@ -1,11 +1,14 @@
-﻿using Magnum.Extensions;
+﻿using Alt.Composition;
+using Magnum.Extensions;
 using RoutineBuilder.Core.Context.Entities;
+using System.Composition;
 using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 
 namespace RoutineBuilder.Core.Context.Parts
 {
+    [Shared(Boundaries.DataConsistency)]
     public class RoutineBuilderDbContext : DbContext, IRoutineBuilderDbContext
     {
         private IDbSet<Routine> Routines { get; set; }

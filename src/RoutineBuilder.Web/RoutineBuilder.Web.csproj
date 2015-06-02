@@ -42,6 +42,14 @@
     <Reference Include="AjaxMin">
       <HintPath>..\..\packages\AjaxMin.4.48.4489.28432\lib\net20\AjaxMin.dll</HintPath>
     </Reference>
+    <Reference Include="Alt.Composition.Extended, Version=1.1.0.0, Culture=neutral, PublicKeyToken=cc5aa20e9bb15fdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alt.Composition.Extended.1.1.13\lib\net45\Alt.Composition.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Alt.Composition.Settings, Version=1.1.0.0, Culture=neutral, PublicKeyToken=cc5aa20e9bb15fdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alt.Composition.Settings.1.1.13\lib\net45\Alt.Composition.Settings.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EcmaScript.NET, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
@@ -68,6 +76,10 @@
       <HintPath>..\..\packages\Nancy.1.2.0\lib\net40\Nancy.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Nancy.Bootstrappers.Mef2, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nancy.Bootstrappers.Mef2.1.0.0.1\lib\net45\Nancy.Bootstrappers.Mef2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Nancy.Owin, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Nancy.Owin.1.2.0\lib\net40\Nancy.Owin.dll</HintPath>
       <Private>True</Private>
@@ -88,7 +100,29 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
+    <Reference Include="System.Composition.AttributedModel, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Convention, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Convention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Hosting, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.Runtime, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts, Version=1.0.30.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="Yahoo.Yui.Compressor, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\YUICompressor.NET.2.7.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
@@ -165,6 +199,10 @@
   <ItemGroup>
     <Compile Include="Configuration\Bootstrapper.cs" />
     <Compile Include="Configuration\BundleConfig.cs" />
+    <Compile Include="Hooks\IAfterHook.cs" />
+    <Compile Include="Hooks\IBeforeHook.cs" />
+    <Compile Include="Hooks\IErrorHook.cs" />
+    <Compile Include="Hooks\Parts\UnitOfWorkHook.cs" />
     <Compile Include="Modules\BundlesModule.cs" />
     <Compile Include="Modules\MainModule.cs" />
     <Compile Include="Modules\RoutineModule.cs" />

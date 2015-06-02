@@ -10,7 +10,8 @@ namespace RoutineBuilder.Web.Modules
 {
     public class RoutineModule : NancyModule
     {
-        public RoutineModule(IRoutineBuilderDbContext db, IMapper<RoutineEntity, Routine> mapper)
+        public RoutineModule(IRoutineBuilderDbContext db,
+            IMapper<RoutineEntity, Routine> mapper)
             : base("/routine")
         {
             Get["/"] = _ =>

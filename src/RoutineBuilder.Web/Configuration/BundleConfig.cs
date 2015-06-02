@@ -1,18 +1,10 @@
-﻿using Nancy;
-using Nancy.Bootstrapper;
-using SquishIt.Framework;
+﻿using SquishIt.Framework;
 
 namespace RoutineBuilder.Web.Configuration
 {
     public static class BundleConfig
     {
-        public static void RegisterBundlePipeline(IPipelines pipelines)
-        {
-            RegisterBundles();
-            pipelines.BeforeRequest += ctx => RegisterPipeline(ctx);
-        }
-
-        private static void RegisterBundles()
+        public static void RegisterBundles()
         {
             Bundle.Css()
                 .Add("~/Content/bootstrap.css")
@@ -33,13 +25,6 @@ namespace RoutineBuilder.Web.Configuration
                 .Add("~/Scripts/app/services/")
                 .WithMinifier<SquishIt.Framework.Minifiers.JavaScript.MsMinifier>()
                 .AsCached("scripts", "~/bundles/js/scripts");
-        }
-
-        private static Response RegisterPipeline(NancyContext ctx)
-        {
-            ctx.ViewBag.Styles = Bundle.Css().RenderCachedAssetTag("styles");
-            ctx.ViewBag.Scripts = Bundle.JavaScript().RenderCachedAssetTag("scripts");
-            return null;
         }
     }
 }
