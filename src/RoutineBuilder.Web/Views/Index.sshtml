@@ -1,5 +1,0 @@
-﻿@Master['Master.sshtml']
-
-@Section['Content']
-<div ng-view></div ng-view>
-@EndSection
