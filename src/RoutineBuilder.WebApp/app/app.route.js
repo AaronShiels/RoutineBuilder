@@ -10,7 +10,7 @@
           .state('app', {
               url: '/',
               templateProvider: function($templateCache) {
-                  return $templateCache.get('menu.html');
+                  return $templateCache.get('menu/menu.html');
               },
               controller: 'MenuController',
               controllerAs: 'vm'

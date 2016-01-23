@@ -38,7 +38,7 @@ gulp.task('html', function() {
 
 gulp.task('templates', function () {
     return gulp
-        .src('templates/**/*.html', { cwd: config.paths.appSource })
+        .src(['**/*.html', '!Index.html'], { cwd: config.paths.appSource })
         .pipe(minifyHTML())
         .pipe(templateCache('templates.min.js', { module: 'templates', standalone: true }))
         .pipe(gulp.dest('scripts/', { cwd: config.paths.appBuild }));
@@ -75,6 +75,7 @@ gulp.task('vendor-css', function () {
 
 gulp.task('app-js', function () {
     return gulp.src('**/*.js', { cwd: config.paths.appSource })
+        .pipe(order(['**/*/app.js', '**/*.js'], { base: '.' }))
         .pipe(sourcemaps.init())
         .pipe(concat('app.min.js'))
         .pipe(uglify({ mangle: false }))
