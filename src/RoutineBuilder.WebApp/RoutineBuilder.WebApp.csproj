@@ -36,6 +36,12 @@
     <None Include="package.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\app.route.js" />
+    <Content Include="app\controllers\home.controller.js" />
+    <Content Include="app\controllers\menu.controller.js" />
+    <Content Include="app\templates\home.html" />
+    <Content Include="app\templates\menu.html" />
     <Content Include="gulpfile.js" />
     <Content Include="app\Index.html" />
   </ItemGroup>
