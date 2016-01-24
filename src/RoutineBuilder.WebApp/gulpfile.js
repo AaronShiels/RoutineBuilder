@@ -22,8 +22,6 @@ var config = {
     }
 };
 
-gulp.task('build', ['html', 'templates', 'images', 'vendor-js', 'vendor-css', 'app-js', 'app-css']);
-
 gulp.task('clean', function () {
     return gulp
         .src(config.paths.appBuild)
@@ -82,6 +80,7 @@ gulp.task('app-js', function () {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('scripts/', { cwd: config.paths.appBuild }));
 });
+
 gulp.task('app-css', function () {
     return gulp.src('**/*.css', { cwd: config.paths.appSource })
         .pipe(sourcemaps.init())
@@ -89,4 +88,12 @@ gulp.task('app-css', function () {
         .pipe(cssmin())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.paths.appBuild + 'styles/'));
+});
+
+gulp.task('build', ['build-app', 'build-vendor']);
+gulp.task('build-app', ['html', 'templates', 'images', 'app-js', 'app-css'])
+gulp.task('build-vendor', ['vendor-js', 'vendor-css'])
+
+gulp.task('watch', function () {
+    gulp.watch(config.paths.appSource + '**/*', ['build-app']);
 });
