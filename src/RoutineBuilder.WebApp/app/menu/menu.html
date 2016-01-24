@@ -1,19 +1,23 @@
 ﻿<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-    <md-toolbar layout="row" class="md-theme-indigo">
-        <h3 class="md-toolbar-tools">Mah Menu</h3>
+    <md-toolbar class="md-toolbar-tools">
+        <h2 >Menu</h2>
     </md-toolbar>
-    <md-content layout-padding>
-        <p>
-            This sidenav is locked open on your device. To go back to the default behavior,
-            narrow your display.
-        </p>
-    </md-content>
+    <md-list>
+        <md-subheader>
+            Routines
+        </md-subheader>
+        <md-list-item ng-repeat="routine in vm.routines">
+            <md-button ui-sref="app.routine({ id: routine.id })">
+                {{routine.name}}
+            </md-button>
+        </md-list-item>
+    </md-list>
 </md-sidenav>
 <div flex layout="column">
-    <md-toolbar layout="row" class="md-whiteframe-z2">
+    <md-toolbar layout="row" class="md-whiteframe-z2 md-toolbar-tools">
         <md-button id="main" class="menu" hide-gt-md ng-click="vm.toggleMenu()" aria-label="Show Menu">
             <md-icon md-svg-icon="menu"></md-icon>
         </md-button>
-        <h3 class="md-toolbar-tools">Angular Material - Starter App</h3>
+        <h2>Routine Builder</h2>
     </md-toolbar>
 </div>

@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA","file":"app.min.css","sourcesContent":[".site-root\r\n{\r\n    height: 100%\r\n}"],"sourceRoot":"/source/"}
+{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"app.min.css","sourcesContent":[".site-root\r\n{\r\n    height: 100%\r\n}\r\n\r\n\r\nmd-list-item > a {\r\n  width:100%;\r\n  text-align: left !important;\r\n}"],"sourceRoot":"/source/"}

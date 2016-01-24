@@ -20,6 +20,12 @@
             url: '^/home',
             template: '<h1>Hello Home</h1>',
             controller: 'HomeController'
+        })
+
+        .state('app.routine', {
+            url: '^/routine/:id',
+            template: '<h1>Hello Routine</h1>',
+            controller: 'RoutineController'
         });
 
         $urlRouterProvider.otherwise('/');

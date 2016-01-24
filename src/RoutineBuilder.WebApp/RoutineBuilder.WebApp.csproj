@@ -36,20 +36,30 @@
     <None Include="package.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\api.service.js" />
     <Content Include="app\app.css" />
     <Content Include="app\app.icon.js" />
     <Content Include="app\app.js" />
     <Content Include="app\app.route.js" />
     <Content Include="app\home\home.controller.js" />
+    <Content Include="app\images\svg\avatar-1.svg" />
+    <Content Include="app\images\svg\avatar-4.svg" />
+    <Content Include="app\images\svg\avatars.svg" />
+    <Content Include="app\images\svg\google_plus.svg" />
+    <Content Include="app\images\svg\hangouts.svg" />
+    <Content Include="app\images\svg\mail.svg" />
+    <Content Include="app\images\svg\menu.svg" />
+    <Content Include="app\images\svg\phone.svg" />
+    <Content Include="app\images\svg\share.svg" />
+    <Content Include="app\images\svg\twitter.svg" />
     <Content Include="app\menu\menu.controller.js" />
     <Content Include="app\home\home.html" />
     <Content Include="app\menu\menu.html" />
+    <Content Include="app\routine\home.controller.js" />
     <Content Include="gulpfile.js" />
     <Content Include="app\Index.html" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

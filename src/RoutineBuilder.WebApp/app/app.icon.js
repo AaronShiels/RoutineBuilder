@@ -13,7 +13,8 @@
             .icon("google_plus", "./images/svg/google_plus.svg", 512)
             .icon("hangouts", "./images/svg/hangouts.svg", 512)
             .icon("twitter", "./images/svg/twitter.svg", 512)
-            .icon("phone", "./images/svg/phone.svg", 512);
+            .icon("phone", "./images/svg/phone.svg", 512)
+            .icon("search", "./images/svg/search.svg", 24);
 
         $mdThemingProvider.theme('default');
     }
