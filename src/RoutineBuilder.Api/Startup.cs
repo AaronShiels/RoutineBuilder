@@ -1,4 +1,6 @@
 ﻿using Microsoft.Owin;
+using Nancy;
+using Nancy.Owin;
 using Owin;
 using RoutineBuilder.Api.Configuration;
 
@@ -9,8 +11,9 @@ namespace RoutineBuilder.Api
     {
         public void Configuration(IAppBuilder app)
         {
-            //app.UseNancy();            
-            app.UseWebAppFileServer();
+            app
+                .UseNancy(opt => opt.PassThroughWhenStatusCodesAre(HttpStatusCode.NotFound))
+                .UseWebAppFileServer();
         }
     }
 }
